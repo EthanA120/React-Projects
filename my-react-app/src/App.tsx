@@ -4,6 +4,9 @@ import Header from "./components/Header";
 // import LikeButton from "./components/LikeButton";
 // import PasswordField from "./components/PasswordField";
 // import ProgressBar from "./components/ProgressBar";
+// import TextKeeper from "./components/TextKeeper";
+import SendSMS from "./components/SendSMS";
+
 import "./App.css";
 
 function App() {
@@ -15,6 +18,9 @@ function App() {
 			{/* <LikeButton></LikeButton> */}
             {/* <PasswordField></PasswordField> */}
             {/* <ProgressBar></ProgressBar> */}
+            {/* <TextKeeper></TextKeeper> */}
+            <SendSMS></SendSMS>
+            
 		</>
 	);
 }
