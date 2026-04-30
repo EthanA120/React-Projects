@@ -5,7 +5,8 @@ import Header from "./components/Header";
 // import PasswordField from "./components/PasswordField";
 // import ProgressBar from "./components/ProgressBar";
 // import TextKeeper from "./components/TextKeeper";
-import SendSMS from "./components/SendSMS";
+// import SendSMS from "./components/SendSMS";
+// import PostsPages from "./components/PostsPages";
 
 import "./App.css";
 
@@ -19,7 +20,8 @@ function App() {
             {/* <PasswordField></PasswordField> */}
             {/* <ProgressBar></ProgressBar> */}
             {/* <TextKeeper></TextKeeper> */}
-            <SendSMS></SendSMS>
+            {/* <SendSMS></SendSMS> */}
+            {/* <PostsPages></PostsPages> */}
             
 		</>
 	);
