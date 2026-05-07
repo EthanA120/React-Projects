@@ -1,5 +1,5 @@
 import { Typography, Box, TextField, Button, Paper } from '@mui/material';
-// שים לב לייבוא - משתמשים ב-Grid2
+// Note: Using Grid from @mui/material
 import { Grid } from '@mui/material';
 import SendIcon from '@mui/icons-material/Send';
 import { useState } from 'react';
@@ -9,13 +9,13 @@ const Contact = () => {
 
     const handleSubmit = (event: React.FormEvent) => {
         event.preventDefault();
-        setStatus('ההודעה נשלחה בהצלחה!');
+        setStatus('Message sent successfully!');
     };
 
     return (
         <Box sx={{ maxWidth: '600px', mx: 'auto', mt: 4 }}>
             <Typography variant="h4" align="center" gutterBottom sx={{ mb: 4, fontWeight: 500 }}>
-                צרו קשר
+                Contact Us
             </Typography>
 
             <Paper elevation={3} sx={{ p: 4, borderRadius: 3 }}>
@@ -25,7 +25,7 @@ const Contact = () => {
                         <Grid size={12}>
                             <TextField
                                 fullWidth
-                                label="שם מלא"
+                                label="Full Name"
                                 variant="outlined"
                                 required
                             />
@@ -34,7 +34,7 @@ const Contact = () => {
                         <Grid size={12}>
                             <TextField
                                 fullWidth
-                                label="אימייל"
+                                label="Email"
                                 type="email"
                                 variant="outlined"
                                 required
@@ -44,7 +44,7 @@ const Contact = () => {
                         <Grid size={12}>
                             <TextField
                                 fullWidth
-                                label="הודעה"
+                                label="Message"
                                 multiline
                                 rows={4}
                                 variant="outlined"
@@ -58,10 +58,10 @@ const Contact = () => {
                                 variant="contained"
                                 size="large"
                                 type="submit"
-                                endIcon={<SendIcon sx={{ transform: 'rotate(180deg)' }} />}
+                                endIcon={<SendIcon />}
                                 sx={{ py: 1.5, fontSize: '1.1rem' }}
                             >
-                                שליחת הודעה
+                                Send Message
                             </Button>
                         </Grid>
 

@@ -2,11 +2,15 @@ import { Box, BottomNavigation, BottomNavigationAction, Paper } from "@mui/mater
 import RestoreIcon from "@mui/icons-material/Restore";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
-import FolderIcon from "@mui/icons-material/Folder";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+
+import ROUTS from "../../router/Routs";
 
 function Footer() {
     const [value, setValue] = useState(0);
+    const navigate = useNavigate();
+    
     return (
         <Box sx={{ pb: 7 }}>
             <Paper
@@ -20,10 +24,30 @@ function Footer() {
                         setValue(newValue);
                     }}
                 >
-                    <BottomNavigationAction label="latest" icon={<RestoreIcon />} />
-                    <BottomNavigationAction label="favorites" icon={<FavoriteIcon />} />
-                    <BottomNavigationAction label="close to" icon={<LocationOnIcon />} />
-                    <BottomNavigationAction label="archive" icon={<FolderIcon />} />
+                    <BottomNavigationAction
+                        label="Home"
+                        icon={<RestoreIcon />}
+                        onClick={() => {
+                            console.log("Home clicked");
+                            navigate(ROUTS.HOME);
+                        }}
+                    />
+                    <BottomNavigationAction
+                        label="About"
+                        icon={<LocationOnIcon />}
+                        onClick={() => {
+                            console.log("about clicked");
+                            navigate(ROUTS.ABOUT);
+                        }}
+                    />
+                    <BottomNavigationAction
+                        label="Contact"
+                        icon={<FavoriteIcon />}
+                        onClick={() => {
+                            console.log("contact clicked");
+                            navigate(ROUTS.CONTACT);
+                        }}
+                    />
                 </BottomNavigation>
             </Paper>
         </Box>

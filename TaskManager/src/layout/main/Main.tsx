@@ -3,7 +3,7 @@ import Router from '../../router/Router';
 
 const Main = () => {
   return (
-    <Box component="main" sx={{ minHeight: '70vh', py: 8, backgroundColor: '#f9f9f9' }}>
+    <Box component="main" sx={{ flexGrow: 1, py: 8, backgroundColor: '#f9f9f9' }}>
       <Container maxWidth="lg">
         <Router />
       </Container>

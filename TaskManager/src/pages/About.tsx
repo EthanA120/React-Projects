@@ -5,16 +5,16 @@ const About = () => {
     <Box sx={{ maxWidth: '800px', mx: 'auto', mt: 4 }}>
       <Paper elevation={0} sx={{ p: 4, backgroundColor: 'transparent' }}>
         <Typography variant="h3" gutterBottom sx={{ fontWeight: 'bold' }}>
-          קצת עליי
+          About Me
         </Typography>
         <Typography variant="h6" component="p" color="text.secondary">
-          אני מפתח Full Stack עם תשוקה ליצירת ממשקים ידידותיים למשתמש.
+          I am a Full Stack Developer with a passion for creating user-friendly interfaces.
         </Typography>
         <Divider sx={{ my: 3 }} />
         <Typography variant="body1" sx={{ lineHeight: 1.8 }}>
-          האתר הזה נבנה כפרויקט למידה המציג שימוש ב-React, TypeScript ו-Material UI. 
-          כאן אני משלב עבודה עם API חיצוניים (כמו בפוסטים שראינו) יחד עם ניהול State מתקדם
-          ואופטימיזציות של ביצועים.
+          This website was built as a learning project showcasing the use of React, TypeScript, and Material UI. 
+          Here I integrate work with external APIs along with advanced state management
+          and performance optimizations.
         </Typography>
       </Paper>
     </Box>

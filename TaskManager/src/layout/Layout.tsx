@@ -8,7 +8,7 @@ import Footer from './footer/Footer';
 function Layout() {
 
     return (
-        <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '90vh' }}>
+        <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
             <Header />
             <Main />
             <Footer />
