@@ -1,12 +1,12 @@
 import { Card, CardContent, Typography, Checkbox } from '@mui/material';
 
-// הגדרת המידע שהרכיב מקבל (Props)
+// Definition of the data the component receives (Props)
 interface TaskProps {
   id: string;
   title: string;
   description: string;
   completed: boolean;
-  onToggleComplete: (id: string) => void; // פונקציה שמופעלת כשלוחצים על הצ'קבוקס
+  onToggleComplete: (id: string) => void; // Function triggered when clicking the checkbox
 }
 
 const Task = ({ id, title, description, completed, onToggleComplete }: TaskProps) => {

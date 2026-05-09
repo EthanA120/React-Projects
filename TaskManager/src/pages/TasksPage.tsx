@@ -1,39 +1,12 @@
-import { Typography, Container, Stack, Card, CardContent, Button } from "@mui/material";
+import { Typography, Container, Stack, Card, CardContent, Button, Box } from "@mui/material";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { MOCK_TASKS } from "../data/TaskItem";
+import { type TaskItem } from "../types/Task";
+import ROUTS from "../router/Routs";
 
-// הגדרה איך נראית משימה אחת
-export interface TaskItem {
-  id: string;
-  title: string;
-  description: string;
-  completed: boolean;
-}
-
-// נתוני המשימות (הוצאנו החוצה כדי שנוכל להשתמש בהם גם בעמוד הפירוט)
-export const MOCK_TASKS: TaskItem[] = [
-  {
-    id: "1",
-    title: "Finish React Project",
-    description: "Complete all required tasks in the current React project, including bug fixes and UI improvements.",
-    completed: false,
-  },
-  {
-    id: "2",
-    title: "Buy Groceries",
-    description: "Milk, bread, eggs, vegetables, and fruits.",
-    completed: true,
-  },
-  {
-    id: "3",
-    title: "Workout at the Gym",
-    description: "Full body strength training, including warmup and stretching.",
-    completed: false,
-  },
-];
 
 function TasksPage() {
-  // רשימת המשימות
   const [tasks] = useState<TaskItem[]>(MOCK_TASKS);
 
   return (
@@ -41,6 +14,11 @@ function TasksPage() {
       <Typography variant="h4" align="center" gutterBottom>
         רשימת המשימות שלי
       </Typography>
+      <Box sx={{ display: 'flex', justifyContent: 'center', mb: 3 }}>
+        <Button variant="contained" color="secondary" component={Link} to={ROUTS.NEW_TASK}>
+          הוסף משימה חדשה
+        </Button>
+      </Box>
       <Stack spacing={1}>
         {tasks.map((task) => (
           <Card key={task.id} variant="outlined">
