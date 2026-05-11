@@ -38,6 +38,16 @@ function Header() {
                     >
                         Log In
                     </Button>
+                    
+                    <Button
+                        variant="outlined"
+                        color="inherit"
+                        sx={{ ml: 2 }}
+                        component={Link}
+                        to="/register"
+                    >
+                        Register
+                    </Button>
                 </Box>
             </Toolbar>
         </AppBar>

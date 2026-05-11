@@ -12,7 +12,7 @@ function Footer() {
     const navigate = useNavigate();
     
     return (
-        <Box sx={{ pb: 7 }}>
+        <Box sx={{ pb: 5 }}>
             <Paper
                 sx={{ position: "fixed", bottom: 0, left: 0, right: 0 }}
                 elevation={3}

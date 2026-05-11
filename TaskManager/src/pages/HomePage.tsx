@@ -17,17 +17,17 @@ const HomePage = () => {
       >
         <Container maxWidth="md">
           <Typography variant="h2" component="h1" gutterBottom sx={{ fontWeight: 800, color: '#1a2027' }}>
-            הופכים רעיונות למציאות דיגיטלית
+            Turning Ideas into Digital Reality
           </Typography>
           <Typography variant="h5" color="text.secondary" component={'p'} sx={{ mb: 4 }}>
-            פיתוח אפליקציות מודרניות, מהירות ומעוצבות עם הטכנולוגיות המתקדמות ביותר בשוק.
+            Developing modern, fast, and beautifully designed applications with the market's most advanced technologies.
           </Typography>
           <Stack direction="row" spacing={2} sx={{justifyContent: "center"}}>
             <Button variant="contained" size="large" sx={{ px: 4, py: 1.5, borderRadius: 2 }}>
-              התחל עכשיו
+              Get Started
             </Button>
             <Button variant="outlined" size="large" sx={{ px: 4, py: 1.5, borderRadius: 2 }}>
-              למד עוד
+              Learn More
             </Button>
           </Stack>
         </Container>
@@ -40,9 +40,9 @@ const HomePage = () => {
           <Grid size={{ xs: 12, md: 4 }}>
             <Paper elevation={0} sx={{ p: 4, textAlign: 'center', height: '100%', border: '1px solid #f0f0f0', borderRadius: 4 }}>
               <RocketLaunchIcon color="primary" sx={{ fontSize: 50, mb: 2 }} />
-              <Typography variant="h5" gutterBottom sx={{ fontWeight: 600 }}>מהירות שיא</Typography>
+              <Typography variant="h5" gutterBottom sx={{ fontWeight: 600 }}>Top Performance</Typography>
               <Typography variant="body2" color="text.secondary">
-                ביצועים אופטימליים בזכות שימוש ב-React ו-Vite לטעינה מיידית של דפים.
+                Optimized performance using React and Vite for near-instant page loads.
               </Typography>
             </Paper>
           </Grid>
@@ -51,9 +51,9 @@ const HomePage = () => {
           <Grid size={{ xs: 12, md: 4 }}>
             <Paper elevation={0} sx={{ p: 4, textAlign: 'center', height: '100%', border: '1px solid #f0f0f0', borderRadius: 4 }}>
               <CodeIcon color="primary" sx={{ fontSize: 50, mb: 2 }} />
-              <Typography variant="h5" gutterBottom sx={{ fontWeight: 600 }}>קוד נקי</Typography>
+              <Typography variant="h5" gutterBottom sx={{ fontWeight: 600 }}>Clean Code</Typography>
               <Typography variant="body2" color="text.secondary">
-                כתיבה ב-TypeScript מבטיחה קוד יציב, קריא ותחזוקתי לאורך זמן.
+                Written in TypeScript to ensure stable, readable, and maintainable code over time.
               </Typography>
             </Paper>
           </Grid>
@@ -62,9 +62,9 @@ const HomePage = () => {
           <Grid size={{ xs: 12, md: 4 }}>
             <Paper elevation={0} sx={{ p: 4, textAlign: 'center', height: '100%', border: '1px solid #f0f0f0', borderRadius: 4 }}>
               <DevicesIcon color="primary" sx={{ fontSize: 50, mb: 2 }} />
-              <Typography variant="h5" gutterBottom sx={{ fontWeight: 600 }}>רספונסיביות מלאה</Typography>
+              <Typography variant="h5" gutterBottom sx={{ fontWeight: 600 }}>Fully Responsive</Typography>
               <Typography variant="body2" color="text.secondary">
-                התאמה מושלמת לכל מסך - ממובייל ועד למסכי Desktop רחבים.
+                Perfectly adapted to any screen - from mobile devices to wide desktop monitors.
               </Typography>
             </Paper>
           </Grid>

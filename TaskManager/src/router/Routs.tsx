@@ -6,6 +6,7 @@ const ROUTS = {
     ABOUT: '/about',
     CONTACT: '/contact',
     LOGIN: '/login',
+    REGISTER: '/register',
 };
 
 export default ROUTS;

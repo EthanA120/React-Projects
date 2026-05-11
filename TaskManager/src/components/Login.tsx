@@ -13,12 +13,12 @@ const Login = () => {
 	return (
 		<Paper elevation={3} sx={{ p: 4, borderRadius: 2, width: '100%' }}>
 			<Typography variant="h5" gutterBottom align="center" sx={{ fontWeight: 600 }}>
-				התחברות
+				Login
 			</Typography>
 			<Box component="form" onSubmit={handleSubmit(onSubmit)} sx={{ mt: 2 }}>
 				<TextField
 					fullWidth
-					label="אימייל"
+					label="Email"
 					type="email"
 					margin="normal"
 					required
@@ -26,7 +26,7 @@ const Login = () => {
 				/>
 				<TextField
 					fullWidth
-					label="סיסמה"
+					label="Password"
 					type="password"
 					margin="normal"
 					required
@@ -39,7 +39,7 @@ const Login = () => {
 					size="large"
 					sx={{ mt: 3, py: 1.5, borderRadius: 2 }}
 				>
-					התחבר
+					Login
 				</Button>
 			</Box>
 		</Paper>
