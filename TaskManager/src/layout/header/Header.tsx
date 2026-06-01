@@ -1,10 +1,16 @@
-import { AppBar, Toolbar, Typography, Button, Box, IconButton } from "@mui/material";
+import { AppBar, Toolbar, Typography, Button, Box, IconButton, useTheme } from "@mui/material";
 import { Link } from "react-router-dom";
 import MenuIcon from "@mui/icons-material/Menu";
+import Brightness4Icon from "@mui/icons-material/Brightness4";
+import Brightness7Icon from "@mui/icons-material/Brightness7";
 import NavItem from "../../router/NavItem";
 import ROUTS from "../../router/Routs";
+import { useThemeContext } from "../../providers/ProjectThemeProvider";
 
 function Header() {
+    const theme = useTheme();
+    const { toggleTheme } = useThemeContext();
+
     return (
         <AppBar position="static" color="primary">
             <Toolbar sx={{ justifyContent: "space-between" }}>
@@ -28,6 +34,10 @@ function Header() {
                         <NavItem to={ROUTS.ABOUT} label="About" />
                         <NavItem to={ROUTS.CONTACT} label="Contact" />
                     </Box>
+
+                    <IconButton onClick={toggleTheme} color="inherit" sx={{ ml: 1 }}>
+                        {theme.palette.mode === "dark" ? <Brightness7Icon /> : <Brightness4Icon />}
+                    </IconButton>
                     
                     <Button
                         variant="outlined"

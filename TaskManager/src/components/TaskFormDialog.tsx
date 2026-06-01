@@ -7,10 +7,11 @@ interface TaskFormDialogProps {
   open: boolean;
   onClose: () => void;
   onSave: (data: TaskItem) => void;
+  onDelete?: (id: string) => void;
   taskToEdit?: TaskItem;
 }
 
-function TaskFormDialog({ open, onClose, onSave, taskToEdit }: TaskFormDialogProps) {
+function TaskFormDialog({ open, onClose, onSave, onDelete, taskToEdit }: TaskFormDialogProps) {
   const { control, handleSubmit, reset } = useForm<TaskItem>({
     defaultValues: {
       title: "",
@@ -132,6 +133,12 @@ function TaskFormDialog({ open, onClose, onSave, taskToEdit }: TaskFormDialogPro
         </DialogContent>
 
         <DialogActions>
+          {taskToEdit && onDelete && (
+            <Button onClick={() => onDelete(taskToEdit.id)} color="error" sx={{ mr: 'auto' }}>
+              Delete Task
+            </Button>
+          )}
+
           <Button onClick={onClose} color="inherit">
             Cancel
           </Button>

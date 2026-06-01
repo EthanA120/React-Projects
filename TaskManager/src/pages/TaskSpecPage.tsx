@@ -1,23 +1,14 @@
 import { useParams, Link } from "react-router-dom";
-import { useState, useEffect } from "react";
-import { Container, Typography, Button, Box, Paper, Divider, Chip, Stack } from "@mui/material";
-import { MOCK_TASKS } from "../data/TaskItem";
+import { Container, Typography, Button, Box, Paper, Divider, Chip, Stack, IconButton } from "@mui/material";
 import { type TaskItem } from "../types/Task";
-
+import ThumbUpIcon from "@mui/icons-material/ThumbUp";
+import ThumbDownIcon from "@mui/icons-material/ThumbDown";
+import useTasks from "../hooks/useTasks";
 
 function TaskSpecPage() {
-    // Extract the ID from the URL (e.g., from the path /tasks/1)
-    const [task, setTask] = useState<TaskItem | undefined>();
     const { id } = useParams<{ id: string }>();
-
-    useEffect(() => {
-        // Search for the task in localStorage
-        const savedTasksString = localStorage.getItem("task_manager_tasks");
-        const tasks: TaskItem[] = savedTasksString ? JSON.parse(savedTasksString) : MOCK_TASKS;
-        
-        const foundTask = tasks.find((t) => t.id === id);
-        setTask(foundTask);
-    }, [id]); // Dependency array ensures the code runs only if the id changed
+    const { tasks, handleLikeTask, handleDislikeTask } = useTasks();
+    const task = tasks.find((t) => t.id === id);
 
     const getStatusConfig = (status: TaskItem['status']) => {
         switch (status) {
@@ -54,10 +45,10 @@ function TaskSpecPage() {
                 <Stack spacing={3}>
                     <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                         <Typography variant="h5" sx={{ fontWeight: 600 }}>{task.title}</Typography>
-                        <Chip 
-                            label={getStatusConfig(task.status).label} 
-                            color={getStatusConfig(task.status).color} 
-                            variant="filled" 
+                        <Chip
+                            label={getStatusConfig(task.status).label}
+                            color={getStatusConfig(task.status).color}
+                            variant="filled"
                         />
                     </Box>
 
@@ -68,22 +59,37 @@ function TaskSpecPage() {
                         <Typography variant="body1">{task.description}</Typography>
                     </Box>
 
-                    <Stack direction="row" spacing={4}>
-                        <Box>
-                            <Typography variant="subtitle2" color="text.secondary">Priority:</Typography>
-                            <Typography variant="body1" sx={{ textTransform: 'capitalize' }}>
-                                {task.priority}
-                            </Typography>
+                    <Stack direction="row" spacing={4} sx={{ justifyContent: 'space-between' }}>
+                        <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
+                            <Box sx={{ display: 'flex', direction: 'row', gap: 1 }}>
+                                <Typography variant="subtitle2" color="text.secondary">Priority:</Typography>
+                                <Typography variant="body1" sx={{ textTransform: 'capitalize' }}>
+                                    {task.priority}
+                                </Typography>
+                            </Box>
+                            <Box sx={{ display: 'flex', direction: 'row', gap: 1 }}>
+                                <Typography variant="subtitle2" color="text.secondary">Due Date:</Typography>
+                                <Typography variant="body1">
+                                    {task.dueDate instanceof Date
+                                        ? task.dueDate.toLocaleDateString('en-US')
+                                        : new Date(task.dueDate).toLocaleDateString('en-US')}
+                                </Typography>
+                            </Box>
                         </Box>
-                        <Box>
-                            <Typography variant="subtitle2" color="text.secondary">Due Date:</Typography>
-                            <Typography variant="body1">
-                                {task.dueDate instanceof Date 
-                                    ? task.dueDate.toLocaleDateString('en-US') 
-                                    : new Date(task.dueDate).toLocaleDateString('en-US')}
-                            </Typography>
+
+                        {/* Like and Dislike buttons */}
+                        <Box sx={{ display: 'flex', direction: 'row', gap: 1, justifyContent: 'center', alignItems: 'center' }}>
+                            <IconButton color="primary" onClick={() => handleLikeTask(task.id)}>
+                                <ThumbUpIcon />
+                            </IconButton>
+                            <Typography variant="body1" sx={{ fontWeight: 600 }}>{task.likes}</Typography>
+                            <IconButton color="error" onClick={() => handleDislikeTask(task.id)}>
+                                <ThumbDownIcon />
+                            </IconButton>
                         </Box>
                     </Stack>
+
+
                 </Stack>
             </Paper>
 

@@ -2,49 +2,15 @@ import { Typography, Container, Stack, Card, CardContent, Button, Box, Fab, Icon
 import AddIcon from "@mui/icons-material/Add";
 import CloseIcon from "@mui/icons-material/Close";
 import EditIcon from "@mui/icons-material/Edit";
-import { useState, useEffect } from "react";
+import DeleteIcon from "@mui/icons-material/Delete";
 import { Link } from "react-router-dom";
-import { MOCK_TASKS } from "../data/TaskItem";
-import { type TaskItem } from "../types/Task";
+import useTasks from "../hooks/useTasks";
+
 import TaskFormDialog from "../components/TaskFormDialog";
 
 
 function TasksPage() {
-	const [tasks, setTasks] = useState<TaskItem[]>(() => {
-		const savedTasks = localStorage.getItem("task_manager_tasks");
-		return savedTasks ? JSON.parse(savedTasks) : MOCK_TASKS;
-	});
-	const [isOpen, setIsOpen] = useState(false);
-	const [editingTask, setEditingTask] = useState<TaskItem | undefined>(undefined);
-
-	useEffect(() => {
-		localStorage.setItem("task_manager_tasks", JSON.stringify(tasks));
-	}, [tasks]);
-
-	function handleToggle() {
-		setEditingTask(undefined);
-		setIsOpen((prev) => !prev);
-	};
-
-	const handleEdit = (task: TaskItem) => {
-		setEditingTask(task);
-		setIsOpen(true);
-	};
-
-	const handleSaveTask = (taskData: TaskItem) => {
-		if (editingTask) {
-			// Update existing task
-			setTasks(prev => prev.map(t => t.id === editingTask.id ? { ...taskData, id: t.id } : t));
-		} else {
-			// Add new task
-			const newTask = {
-				...taskData,
-				id: crypto.randomUUID(),
-			};
-			setTasks(prev => [...prev, newTask]);
-		}
-		setIsOpen(false);
-	};
+	const { tasks, isOpen, setIsOpen, handleToggle, handleEdit, handleDeleteTask, handleSaveTask, editingTask  } = useTasks();
 
 	return (
 		<Container maxWidth="sm" sx={{ py: 4 }}>
@@ -61,6 +27,9 @@ function TasksPage() {
 							<Stack direction="row" spacing={1}>
 								<IconButton color="primary" onClick={() => handleEdit(task)}>
 									<EditIcon />
+								</IconButton>
+								<IconButton color="error" onClick={() => handleDeleteTask(task.id)}>
+									<DeleteIcon />
 								</IconButton>
 								<Button variant="outlined" component={Link} to={`/tasks/${task.id}`}>
 									Details
@@ -87,6 +56,7 @@ function TasksPage() {
 						open={isOpen} 
 						onClose={() => setIsOpen(false)} 
 						onSave={handleSaveTask}
+						onDelete={handleDeleteTask}
 						taskToEdit={editingTask}
 					/> 
 				)}

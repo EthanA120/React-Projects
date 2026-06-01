@@ -9,6 +9,7 @@ export const MOCK_TASKS: TaskItem[] = [
     status: "in-progress",
     dueDate: new Date("2023-12-31"),
     priority: "high",
+    likes: 0,
   },
   {
     id: "2",
@@ -18,6 +19,7 @@ export const MOCK_TASKS: TaskItem[] = [
     status: "completed",
     dueDate: new Date("2023-11-15"),
     priority: "medium",
+    likes: 0,
   },
   {
     id: "3",
@@ -27,6 +29,7 @@ export const MOCK_TASKS: TaskItem[] = [
     status: "pending",
     dueDate: new Date("2023-11-20"),
     priority: "low",
+    likes: 0,
   },
   {
     id: "4",
@@ -36,6 +39,7 @@ export const MOCK_TASKS: TaskItem[] = [
     status: "pending",
     dueDate: new Date("2023-11-25"),
     priority: "medium",
+    likes: 0,
   },
   {
     id: "5",
@@ -45,5 +49,6 @@ export const MOCK_TASKS: TaskItem[] = [
     status: "pending",
     dueDate: new Date("2023-12-01"),
     priority: "high",
+    likes: 0,
   },
 ];

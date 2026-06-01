@@ -1,22 +1,24 @@
-import { Box, Typography, Button, Container, Paper, Stack, Grid } from '@mui/material';
+import { Box, Typography, Button, Container, Paper, Stack, Grid, useTheme } from '@mui/material';
 import RocketLaunchIcon from '@mui/icons-material/RocketLaunch';
 import CodeIcon from '@mui/icons-material/Code';
 import DevicesIcon from '@mui/icons-material/Devices';
 
 const HomePage = () => {
+  const theme = useTheme();
+
   return (
     <Box>
       {/* --- Hero Section --- */}
       <Box 
         sx={{ 
-          backgroundColor: '#f0f4f8', 
+          backgroundColor: theme.palette.mode === 'light' ? '#f0f4f8' : 'background.default', 
           py: { xs: 8, md: 12 }, 
-          borderBottom: '1px solid #e0e0e0',
+          borderBottom: `1px solid ${theme.palette.divider}`,
           textAlign: 'center'
         }}
       >
         <Container maxWidth="md">
-          <Typography variant="h2" component="h1" gutterBottom sx={{ fontWeight: 800, color: '#1a2027' }}>
+          <Typography variant="h2" component="h1" gutterBottom sx={{ fontWeight: 800, color: 'text.primary' }}>
             Turning Ideas into Digital Reality
           </Typography>
           <Typography variant="h5" color="text.secondary" component={'p'} sx={{ mb: 4 }}>
@@ -38,7 +40,13 @@ const HomePage = () => {
         <Grid container spacing={4}>
           {/* Feature 1 */}
           <Grid size={{ xs: 12, md: 4 }}>
-            <Paper elevation={0} sx={{ p: 4, textAlign: 'center', height: '100%', border: '1px solid #f0f0f0', borderRadius: 4 }}>
+            <Paper 
+              elevation={0} 
+              sx={{ 
+                p: 4, textAlign: 'center', height: '100%', 
+                border: '1px solid', borderColor: 'divider', 
+                borderRadius: 4 
+              }}>
               <RocketLaunchIcon color="primary" sx={{ fontSize: 50, mb: 2 }} />
               <Typography variant="h5" gutterBottom sx={{ fontWeight: 600 }}>Top Performance</Typography>
               <Typography variant="body2" color="text.secondary">
@@ -49,7 +57,13 @@ const HomePage = () => {
 
           {/* Feature 2 */}
           <Grid size={{ xs: 12, md: 4 }}>
-            <Paper elevation={0} sx={{ p: 4, textAlign: 'center', height: '100%', border: '1px solid #f0f0f0', borderRadius: 4 }}>
+            <Paper 
+              elevation={0} 
+              sx={{ 
+                p: 4, textAlign: 'center', height: '100%', 
+                border: '1px solid', borderColor: 'divider', 
+                borderRadius: 4 
+              }}>
               <CodeIcon color="primary" sx={{ fontSize: 50, mb: 2 }} />
               <Typography variant="h5" gutterBottom sx={{ fontWeight: 600 }}>Clean Code</Typography>
               <Typography variant="body2" color="text.secondary">
@@ -60,7 +74,13 @@ const HomePage = () => {
 
           {/* Feature 3 */}
           <Grid size={{ xs: 12, md: 4 }}>
-            <Paper elevation={0} sx={{ p: 4, textAlign: 'center', height: '100%', border: '1px solid #f0f0f0', borderRadius: 4 }}>
+            <Paper 
+              elevation={0} 
+              sx={{ 
+                p: 4, textAlign: 'center', height: '100%', 
+                border: '1px solid', borderColor: 'divider', 
+                borderRadius: 4 
+              }}>
               <DevicesIcon color="primary" sx={{ fontSize: 50, mb: 2 }} />
               <Typography variant="h5" gutterBottom sx={{ fontWeight: 600 }}>Fully Responsive</Typography>
               <Typography variant="body2" color="text.secondary">

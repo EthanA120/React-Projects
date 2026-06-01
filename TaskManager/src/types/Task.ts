@@ -6,4 +6,5 @@ export interface TaskItem {
     status: string,
     dueDate: Date | string,
     priority: string,
+    likes: number,
 }

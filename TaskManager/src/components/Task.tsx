@@ -1,4 +1,5 @@
-import { Card, CardContent, Typography, Checkbox } from '@mui/material';
+import { Card, CardContent, Typography, Checkbox, IconButton } from '@mui/material';
+import DeleteIcon from '@mui/icons-material/Delete';
 
 // Definition of the data the component receives (Props)
 interface TaskProps {
@@ -7,9 +8,10 @@ interface TaskProps {
   description: string;
   completed: boolean;
   onToggleComplete: (id: string) => void; // Function triggered when clicking the checkbox
+  onDelete: (id: string) => void; // Function triggered when clicking the delete button
 }
 
-const Task = ({ id, title, description, completed, onToggleComplete }: TaskProps) => {
+const Task = ({ id, title, description, completed, onToggleComplete, onDelete }: TaskProps) => {
   return (
     <Card sx={{ mb: 2, display: 'flex', alignItems: 'center', p: 1 }}>
       <Checkbox
@@ -25,6 +27,9 @@ const Task = ({ id, title, description, completed, onToggleComplete }: TaskProps
           {description}
         </Typography>
       </CardContent>
+      <IconButton onClick={() => onDelete(id)} color="error" aria-label="delete task">
+        <DeleteIcon />
+      </IconButton>
     </Card>
   );
 };
